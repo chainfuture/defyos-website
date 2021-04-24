@@ -31,6 +31,36 @@
 
     gtag('config', 'G-MVNK93V2Z2');
   </script>
+  <script>
+      function sendMessage(){
+        document.getElementById('status').innerHTML = "Sending...";
+        formData = {
+        //'name'     : $('input[name=name]').val(),
+        'from'    : $('input[name=name]').val() + " " + $('input[name=email]').val(),
+        'subject'  : $('input[name=subject]').val(),
+        'message'  : $('textarea[name=message]').val()
+        };
+
+
+        $.ajax({
+        url : "/sendmail",
+        type: "POST",
+        data : formData,
+        dataType: "json",
+        success: function(data, textStatus, jqXHR)
+        {
+
+        $('#status').text(data.message);
+        if (data.code) //If mail was sent successfully, reset the form.
+        $('#contact-form').closest('form').find("input[type=text], textarea").val("");
+        },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+        $('#status').text("Message has been sent");
+        }
+        });
+      }
+  </script>
 </head>
 
 <body data-theme="light" style="overflow-x:hidden;">
@@ -407,6 +437,97 @@
         </div>
       </div>
     </div>
+
+   <div class="container">
+      <!--Section: Contact v.2-->
+      <section>&nbsp;</section>
+      <section>&nbsp;</section>
+      <section>&nbsp;</section>
+      <section>&nbsp;</section>
+      <section>&nbsp;</section>
+      <section>&nbsp;</section>
+      <section>&nbsp;</section>
+      <section class="mb-4" style="margin: auto; width:70%">
+
+        <!--Section heading-->
+        <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+        <!--Section description-->
+        <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you as soon as possible.</p>
+
+        <div class="row" >
+
+            <!--Grid column-->
+            <div class="col-md-9 mb-md-0 mb-5">
+                <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+
+                    <!--Grid row-->
+                    <div class="row">
+
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <input type="text" id="name" name="name" class="form-control">
+                                <label for="name" class="">Your name</label>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-md-6">
+                            <div class="md-form mb-0">
+                                <input type="text" id="email" name="email" class="form-control">
+                                <label for="email" class="">Your email</label>
+                            </div>
+                        </div>
+                        <!--Grid column-->
+
+                    </div>
+                    <!--Grid row-->
+
+                    <!--Grid row-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="md-form mb-0">
+                                <input type="text" id="subject" name="subject" class="form-control">
+                                <label for="subject" class="">Subject</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Grid row-->
+
+                    <!--Grid row-->
+                    <div class="row">
+
+                        <!--Grid column-->
+                        <div class="col-md-12">
+
+                            <div class="md-form">
+                                <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                                <label for="message">Your message</label>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--Grid row-->
+
+                </form>
+
+                <div class="text-center text-md-left">
+                    <a class="btn btn-primary" onclick="sendMessage();">Send</a>
+                </div>
+                <div id="status" class="status"></div>
+            </div>
+            <!--Grid column-->
+
+        </div>
+
+      </section>
+      <!--Section: Contact v.2-->
+
+   </div> 
+
+
+
     <!-- footer section -->
     <footer class="footer">
       <div class="container pt-lg-30 pt-15 pb-lg-24 pb-8">
