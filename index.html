@@ -21,6 +21,8 @@
   <!-- Vendor stylesheets  -->
   <link rel="stylesheet" href="./plugins/theme-mode-switcher/switcher-panel.css">
   <link rel="stylesheet" href="css/main.css">
+
+  <link rel="stylesheet" href="plugins/cookie-consent-bar-grt/grt-cookies-consent.css">
   <!-- Custom stylesheet -->
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MVNK93V2Z2"></script>
@@ -61,9 +63,17 @@
         });
       }
   </script>
+
 </head>
 
 <body data-theme="light" style="overflow-x:hidden;">
+  <div class="grt-cookie"> 
+    <div class="grt-cookies-msg">
+     <p> We use cookies to ensure that we give you the best experience on our website. If you continue to use this site we will assume that you accept and understand our <a href="">Privacy Policy</a>, and our <a href="">Terms of Service</a>.</p>
+    </div> 
+    <span class="grt-cookie-button">Accept</span>
+   </div>
+
   <div class="site-wrapper overflow-hidden">
     <!-- Header start  -->
     <!-- Header Area -->
@@ -541,7 +551,7 @@
                   <!-- footer widget title end -->
                   <!-- widget social menu start -->
                   <ul class="widget-links pl-0 list-unstyled list-hover-primary">
-                    <li class="mb-4"><a class="text-black letter-spacing-n6 font-size-5 font-weight-normal letter-spacing-np6" href="">Contact</a></li>
+                    <li class="mb-4"><a class="text-black letter-spacing-n6 font-size-5 font-weight-normal letter-spacing-np6" href="">&nbsp;</a></li>
                     <!--<li class="mb-4"><a class="text-black letter-spacing-n6 font-size-5 font-weight-normal letter-spacing-np6" href="">Features</a></li>-->
                     <!--<li class="mb-4"><a class="text-black letter-spacing-n6 font-size-5 font-weight-normal letter-spacing-np6" href="">Works</a></li>-->
                   </ul>
@@ -552,7 +562,7 @@
                 <div class="footer-widget widget3 mb-sm-0 mb-13">
                   <!-- widget social menu start -->
                   <ul class="widget-links pl-0 list-unstyled list-hover-primary mt-md-18 mt-sm-12">
-                    <li class="mb-4"><a class="text-black letter-spacing-n6 font-size-5 font-weight-normal letter-spacing-np6" href="">Privacy Policy </a></li>
+                    <li class="mb-4"><a class="text-black letter-spacing-n6 font-size-5 font-weight-normal letter-spacing-np6" href="">&nbsp; </a></li>
                     <!--<li class="mb-4"><a class="text-black letter-spacing-n6 font-size-5 font-weight-normal letter-spacing-np6" href="">Privacy Policy</a></li>-->
                     <!--<li class="mb-4"><a class="text-black letter-spacing-n6 font-size-5 font-weight-normal letter-spacing-np6" href="">Privacy Policy</a></li>-->
                   </ul>
@@ -593,6 +603,8 @@
       </div>
     </footer>
   </div>
+
+
   <!-- Vendor Scripts -->
   <script src="js/vendor.min.js"></script>
   <!-- Plugin's Scripts -->
@@ -605,6 +617,17 @@
   <script src="plugins/theme-mode-switcher/gr-theme-mode-switcher.js"></script>
   <!-- Activation Script -->
   <script src="js/custom.js"></script>
+  <script src="plugins/cookie-consent-bar-grt/grt-cookie-consent.js"></script>
+  <script> 	$(".grt-cookie").grtCookie({
+		// Main text and background color
+		textcolor: "#333",
+		background: "#fff",
+		// Button colors
+		buttonbackground: "#c40b14",
+		buttontextcolor: "#fff",
+		// Duration in days
+		duration: 365,
+	});</script>
 </body>
 
 </html>
